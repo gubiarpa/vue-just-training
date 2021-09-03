@@ -54,9 +54,9 @@
   export default {
     data() {
       return {
-        drawer: true,
+        drawer: Object,
         items: [
-          { title: 'Dashboard', icon: 'mdi-view-dashboard' },
+          { title: 'Countries', icon: 'mdi-earth' },
           { title: 'Photos', icon: 'mdi-image' },
           { title: 'About', icon: 'mdi-help-box' },
         ],
@@ -66,7 +66,17 @@
     methods: {
       toogleDrawer() {
         this.drawer = !this.drawer
+        localStorage.setItem('_drawer', this.drawer ? 'even' : 'odd')
       }
+    },
+    created () {
+      const _drawer = localStorage.getItem('_drawer')
+      if (['odd', 'even'].indexOf(_drawer) === -1) {
+        this.drawer = true
+      } else {
+        this.drawer = _drawer === 'even'
+      }
+      localStorage.setItem('_drawer', this.drawer ? 'even' : 'odd')
     },
   }
 </script>
