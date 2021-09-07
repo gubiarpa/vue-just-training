@@ -26,6 +26,7 @@
           v-for="item in items"
           :key="item.title"
           link
+          :to="item.link"
         >
           <v-list-item-icon>
             <v-icon>{{ item.icon }}</v-icon>
@@ -56,8 +57,8 @@
       return {
         drawer: Object,
         items: [
-          { title: 'Countries', icon: 'mdi-earth' },
-          { title: 'Photos', icon: 'mdi-image' },
+          { title: 'Countries', icon: 'mdi-earth', link: '/' },
+          { title: 'Photos', icon: 'mdi-image', link: '/about' },
           { title: 'About', icon: 'mdi-help-box' },
         ],
         right: null,

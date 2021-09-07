@@ -27,6 +27,7 @@
             { text: 'Area', value: 'area' },
         ],
         items: [],
+        filteredItems: [],
       }
     },
     methods: {
